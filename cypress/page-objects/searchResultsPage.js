@@ -1,5 +1,6 @@
-class SearchResultsPage{
-    getProductByDocId(docId){
+class SearchResultsPage {
+
+    getProductByDocId(docId) {
         return cy.get(`a[href="https://www.21vek.by/${docId}"]`);
     }
 }

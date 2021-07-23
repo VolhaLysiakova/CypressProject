@@ -17,6 +17,7 @@ describe('Tests for 21vek', () => {
             cy.log("WHEN User performs search by name")
             MainPage.performSearch(product.name)
 
+            cy.log("THEN Check that the product is displayed on the page")
             SearchResultsPage.getProductByDocId(product.url).should(`exist`)
         })
     })

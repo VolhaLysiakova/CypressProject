@@ -1,9 +1,6 @@
 import Chance from 'chance'
 
 describe('Tests for reqres', () => {
-    before(() => {
-        //cy.visit('https://example.cypress.io/commands/actions')
-    })
 
     it('Positive: Create user', () => {
         cy.fixture('user').then(user => {
@@ -42,8 +39,6 @@ describe('Tests for reqres', () => {
         })
     })
 
-
-
     it('Negative: POST request - login unsuccessful', () => {
         cy.request({method: 'POST', url: '/api/login', failOnStatusCode: false, body:
         {
@@ -52,7 +47,6 @@ describe('Tests for reqres', () => {
         }).then(response => {
             expect(response.status).to.eq(400)
         })
-
 
     })
 })

@@ -4,7 +4,6 @@ import SearchGooglePage from "../../page-objects/searchGooglePage"
 
 describe('Tests for google', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
-
         //returning false here prevents Cypress from
         //failing the test
         return false
@@ -14,11 +13,15 @@ describe('Tests for google', () => {
         cy.fixture('googleProduct').then(data =>{
             cy.wrap(data).as('productData')
         })
+        function interceptGoogle() {
+            cy.intercept('/us/searchSuggest*')
+                .as("searchCall")
+        }
+        interceptGoogle()
     })
 
    it('Google Search', () => {
        cy.get('@productData').then((productData) =>{
-            SearchGooglePage.interceptGoogle()
 
             cy.log("GIVEN user at main page")
             SearchGooglePage.open()
@@ -26,10 +29,10 @@ describe('Tests for google', () => {
             cy.log("WHEN User performs search by name")
             SearchGooglePage.performSearch(productData.name)
             cy.wait('@searchCall');
-            cy.wait(Cypress.env("waitTimeout"))
 
+            cy.log("THEN Check that the product is displayed on the page")
             SearchGoogleResults.getProductByDocId(productData.url)
-            SearchGoogleResults.getProductByH2(productData.h)
+            SearchGoogleResults.getProductByName(productData.h)
        })
    })
 })

@@ -5,11 +5,11 @@ class MainPage {
         cy.visit(`${Cypress.env('shopUrl')}`);
     }
 
-    get searchInput(){
+    get searchInput() {
         return cy.get('input[id="j-search"]');
     }
 
-    performSearch(productToSearch){
+    performSearch(productToSearch) {
         this.searchInput.type(`${productToSearch}{enter}`);
     }
 }
