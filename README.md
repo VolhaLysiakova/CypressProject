@@ -1,5 +1,5 @@
 # CypressProject
-It's a study project- for UI and API testing using Page object patterns.
+It's a study project for UI and API testing using Page object patterns.
 
 Before running test use should install NodeJS >6.1.0 at your environment: https://nodejs.org/en/download/
 
