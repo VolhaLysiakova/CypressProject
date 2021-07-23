@@ -18,3 +18,13 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+before(() => {
+
+    function interceptGoogle() {
+        cy.intercept('/us/searchSuggest*')
+            .as("searchCall")
+    }
+
+    interceptGoogle()
+})

@@ -9,7 +9,7 @@ describe('Tests for 21vek', () => {
 
     it('Positive: Create user', () => {
 
-        cy.fixture('product').then(product =>{
+        cy.fixture('product').then(product => {
 
             cy.log("GIVEN user at main page")
             MainPage.open()

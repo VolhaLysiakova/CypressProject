@@ -8,7 +8,7 @@ describe('Tests for reqres', () => {
                 expect(response.status).to.eq(201)
                 expect(response.body).to.have.property('name', user.name)
                 expect(response.body).to.have.property('job', user.job)
-             })
+            })
         })
     })
 
@@ -40,10 +40,11 @@ describe('Tests for reqres', () => {
     })
 
     it('Negative: POST request - login unsuccessful', () => {
-        cy.request({method: 'POST', url: '/api/login', failOnStatusCode: false, body:
-        {
-            "email": "peter@klaven"
-        }
+        cy.request({
+            method: 'POST', url: '/api/login', failOnStatusCode: false, body:
+                {
+                    "email": "peter@klaven"
+                }
         }).then(response => {
             expect(response.status).to.eq(400)
         })

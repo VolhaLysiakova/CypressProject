@@ -17,6 +17,7 @@ class SearchGooglePage {
     performSearch(productToSearch) {
         this.searchIcon.click();
         this.searchInput.type(`${productToSearch}{enter}`);
+        cy.wait('@searchCall');
     }
 }
 

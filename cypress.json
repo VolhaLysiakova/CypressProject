@@ -5,12 +5,9 @@
   "defaultCommandTimeout": 30000,
   "requestTimeout": 30000,
   "taskTimeout": 30000,
-
   "env": {
     "waitTimeout": 5000,
     "shopUrl": "https://www.21vek.by/",
     "googleUrl": "https://store.google.com/us"
   }
-
-
 }

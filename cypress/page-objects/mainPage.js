@@ -1,7 +1,7 @@
 import SearchResultsPage from './searchResultsPage'
 
 class MainPage {
-    open(){
+    open() {
         cy.visit(`${Cypress.env('shopUrl')}`);
     }
 
