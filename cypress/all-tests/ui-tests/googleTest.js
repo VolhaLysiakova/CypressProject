@@ -13,13 +13,6 @@ describe('Tests for google', () => {
         cy.fixture('googleProduct').then(data => {
             cy.wrap(data).as('productData')
         })
-
-        //function interceptGoogle() {
-        //   cy.intercept('/us/searchSuggest*')
-        //      .as("searchCall")
-        //}
-
-        //interceptGoogle()
     })
 
     it('Google Search', () => {

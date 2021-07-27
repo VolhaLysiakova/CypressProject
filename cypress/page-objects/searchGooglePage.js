@@ -1,5 +1,3 @@
-import SearchGoogleResults from './searchGoogleResults'
-
 class SearchGooglePage {
 
     open() {
