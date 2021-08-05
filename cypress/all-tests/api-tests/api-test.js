@@ -6,7 +6,11 @@ describe('Tests for reqres', () => {
 
     it('Positive: Create user', () => {
         cy.fixture('user').then(user => {
-            createUser(user)
+            createUser(user).then((response) => {
+                expect(response.status).to.eq(201)
+                expect(response.body).to.have.property('name', response.body.name)
+                expect(response.body).to.have.property('job', response.body.job)
+            })
         })
     })
 
@@ -29,7 +33,11 @@ describe('Tests for reqres', () => {
 
     testingData.forEach(({description, requestData}) => {
         it(`Positive: Create user ${description}`, () => {
-            createUser(requestData)
+            createUser(requestData).then((response) => {
+                expect(response.status).to.eq(201)
+                expect(response.body).to.have.property('name', response.body.name)
+                expect(response.body).to.have.property('job', response.body.job)
+            })
         })
     })
 
