@@ -8,6 +8,7 @@
   "env": {
     "waitTimeout": 5000,
     "shopUrl": "https://www.21vek.by/",
-    "googleUrl": "https://store.google.com/us"
+    "googleUrl": "https://store.google.com/us",
+    "user": "https://reqres.in"
   }
 }

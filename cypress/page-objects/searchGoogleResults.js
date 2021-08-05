@@ -1,4 +1,5 @@
 class SearchGoogleResults {
+
     getProductByDocId(googleId) {
         return cy.get(`a[href="/product/${googleId}"]`);
     }

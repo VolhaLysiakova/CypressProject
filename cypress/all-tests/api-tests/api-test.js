@@ -1,14 +1,12 @@
 import Chance from 'chance'
+import {createUser} from "../../../cypress/service/constFunctions";
+
 
 describe('Tests for reqres', () => {
 
     it('Positive: Create user', () => {
         cy.fixture('user').then(user => {
-            cy.request('POST', '/api/users', user).then(response => {
-                expect(response.status).to.eq(201)
-                expect(response.body).to.have.property('name', user.name)
-                expect(response.body).to.have.property('job', user.job)
-            })
+            createUser(user)
         })
     })
 
@@ -31,11 +29,7 @@ describe('Tests for reqres', () => {
 
     testingData.forEach(({description, requestData}) => {
         it(`Positive: Create user ${description}`, () => {
-            cy.request('POST', '/api/users', requestData).then(response => {
-                expect(response.status).to.eq(201)
-                expect(response.body).to.have.property('name', requestData.name)
-                expect(response.body).to.have.property('job', requestData.job)
-            })
+            createUser(requestData)
         })
     })
 
